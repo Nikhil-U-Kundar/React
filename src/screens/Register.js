@@ -1,5 +1,10 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {useSelector} from "react-redux"
+import {store} from "../Store/store"
+
+const value= useSelector((state)=>state.value)
 
 const expensivecallculation =(num)=>{
   console.log("calculating....");
@@ -25,7 +30,7 @@ function Register() {
 
 return (
 <div> 
-     <div>
+     <div><h1>{value}</h1>
        <h2>My Tool</h2>
         {todos.map((todo,index)=>{
          return <p key={index}>{todo}</p>
@@ -38,7 +43,9 @@ return (
   <button onClick={increment}>+</button>
   <h2>Expensive calculation</h2>
   {calculation}
-</div>
+ </div>
+ {/* <button>take me to the user list</button>  this line is replace by the link */}
+ <Link to="/user-list">take me to the user list</Link>
 </div>
 );
 }
